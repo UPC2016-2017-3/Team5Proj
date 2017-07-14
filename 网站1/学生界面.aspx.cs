@@ -13,23 +13,27 @@ public partial class 学生界面 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string myName1Value;
-        myName1Value = Request.Cookies["myCookie"].Value;
-        Label5.Text = myName1Value;
-        //Label5.Text = Request.QueryString["name"];
-        SqlConnection conn = new SqlConnection();
-        conn.ConnectionString = @"Data Source=119.29.143.19;Initial Catalog=打分;User ID=lpl;Password=123";
-        conn.Open();
-        String sql="select 目前组号 from 当前组号";
-        SqlCommand cmd=new SqlCommand(sql,conn);
-        SqlDataReader dr=cmd.ExecuteReader();
-        while (dr.Read())
+        if (!IsPostBack)
         {
-            TextBox1.Text = dr[0].ToString(); // 提取数据库指定行的第一列
+            string myName1Value;
+            myName1Value = Request.Cookies["myCookie"].Value;
+            Label5.Text = myName1Value;
+            //TextBox2.Text = "";
+            //Label5.Text = Request.QueryString["name"];
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = @"Data Source=119.29.143.19;Initial Catalog=打分;User ID=lpl;Password=123";
+            conn.Open();
+            String sql = "select 目前组号 from 当前组号";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                TextBox1.Text = dr[0].ToString(); // 提取数据库指定行的第一列
 
+            }
+            dr.Close();
+            conn.Close();
         }
-        dr.Close();
-        conn.Close();
        
     }
     protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -62,20 +66,24 @@ public partial class 学生界面 : System.Web.UI.Page
 
                     String cmdstr1 = "Insert into 观众评分 (组号,评分,参赛者编号)values('" + Label5.Text + "','" + str2 + "','" + str1 + "')";
                     SqlCommand x = new SqlCommand(cmdstr1, conn);
-                   
-
                     x.ExecuteNonQuery();
                     Label7.Text = "评分成功";
-                    Response.Redirect("学生界面.aspx");
+                    TextBox2.Text = "";
+                    conn.Close();
+                   // Response.Write("<script>alert('评分成功！');</script>");
+                    //Response.Redirect("学生界面.aspx");
                 }
                 else
                 {
                     Label7.Text = "分数错误";
+                    conn.Close();
                 }
             }
             else
             {
                 Label7.Text = "已为该组评分";
+               // Response.Write("<script>alert('已为该组评分！');</script>");
+               // Response.Redirect("学生界面.aspx");
             }
             conn.Close();
         }

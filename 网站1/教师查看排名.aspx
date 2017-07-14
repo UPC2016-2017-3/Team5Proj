@@ -9,11 +9,11 @@
     <style type="text/css">
         .auto-style6 {
             position: absolute;
-            top: 154px;
-            left: 450px;
+            top: 159px;
+            left: 427px;
             z-index: 1;
             font-size: xx-large;
-            right: 258px;
+            right: 279px;
             text-align: center;
         }
         .auto-style15 {
@@ -29,8 +29,8 @@
             width: 333px;
             height: 115px;
             position: absolute;
-            top: 224px;
-            left: 485px;
+            top: 209px;
+            left: 378px;
             z-index: 1;
         }
         .auto-style17 {
@@ -56,7 +56,7 @@
 <body>
     <div style="width:100%;margin:0px auto">
     <form id="form1" runat="server">
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="auto-style16" CellPadding="4"  ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="auto-style16" CellPadding="4"  ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" PageSize="16">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="参赛者编号" HeaderText="参赛者编号" ReadOnly="True" SortExpression="参赛者编号" />
@@ -93,8 +93,10 @@
         <strong>
         <asp:Label ID="Label2" runat="server" CssClass="auto-style18" Text="评分规则"></asp:Label>
         </strong>
-    <img src="image\tk.jpg" height="100%" width="100%"><asp:Button ID="Button1" runat="server" CssClass="auto-style15" OnClick="Button1_Click" Text="返回评分" />
-    &nbsp;<strong><asp:Label ID="Label1" runat="server" CssClass="auto-style6" Text="排名情况"></asp:Label>
+        <asp:Button ID="Button1" runat="server" CssClass="auto-style15" OnClick="Button1_Click" Text="返回评分" />
+        <div style="z-index: 1; left: 50px; top: 201px; position: absolute; height: 89px; width: 848px">
+        </div>
+    <img src="image\tk.jpg" height="100%" width="100%">&nbsp;<strong><asp:Label ID="Label1" runat="server" CssClass="auto-style6" Text="排名情况"></asp:Label>
         </strong>
     </form>
         </div>

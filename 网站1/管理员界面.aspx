@@ -173,7 +173,7 @@
         <asp:Button ID="Button5" runat="server" CssClass="auto-style16" Text="删除教师" onclick="Button5_Click"/>
         <asp:Button ID="Button2" runat="server" CssClass="auto-style3" Text="删除观众" onclick="Button2_Click"/>
         <asp:Label ID="Label5" runat="server" CssClass="auto-style18" Text="观众信息"></asp:Label>
-    <img src="image\tk.jpg" height="100%" width="100%"><asp:GridView ID="GridView1" runat="server" CssClass="auto-style8" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True">
+    <img src="image\tk.jpg" height="100%" width="100%"><asp:GridView ID="GridView1" runat="server" CssClass="auto-style8" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowCustomPaging="True" PageSize="18">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="组号" HeaderText="组号" SortExpression="组号" />
@@ -193,12 +193,12 @@
         <asp:Label ID="Label7" runat="server" CssClass="auto-style24" Text="规则编辑区"></asp:Label>
         <textarea id="TextArea1" class="auto-style22" name="S1" runat="server"></textarea><asp:Label ID="Label4" runat="server" CssClass="auto-style14" Text="密码"></asp:Label>
         <asp:Button ID="Button9" runat="server" CssClass="auto-style23" Text="提交规则" onclick="Button9_Click"/>
-        <asp:Button ID="Button8" runat="server" CssClass="auto-style21" Text="清空分数" onclick="Button8_Click" OnClientClick=" return confirm('确定清空所有数据么？')"/>
-        <asp:Button ID="Button7" runat="server" CssClass="auto-style20" Text="重新开始评分" onclick="Button7_Click" OnClientClick=" return confirm('确定重新开始吗？')"/>
+        <asp:Button ID="Button8" runat="server" CssClass="auto-style21" Text="清空分数" onclick="Button7_Click" OnClientClick=" return confirm('确定清空所有数据么？')"/>
+        <asp:Button ID="Button7" runat="server" CssClass="auto-style20" Text="重新开始评分" onclick="Button8_Click" OnClientClick=" return confirm('确定重新开始吗？')"/>
         <asp:Label ID="Label6" runat="server" CssClass="auto-style19" Text="教师信息"></asp:Label>
         <asp:Button ID="Button4" runat="server" CssClass="auto-style15" Text="新增教师" OnClick="Button4_Click"
              />
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="auto-style10" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True">
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CssClass="auto-style10" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowCustomPaging="True">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="教师用户名" HeaderText="教师用户名" ReadOnly="True" SortExpression="教师用户名" />

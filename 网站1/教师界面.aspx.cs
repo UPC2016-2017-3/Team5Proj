@@ -63,8 +63,10 @@ public partial class 教师登录 : System.Web.UI.Page
             else
             {
                 Label8.Text = "已为该组评分";
+                //Response.Write("<script>alert('已为该组评分！');</script>");
+                //Response.Redirect("教师界面.aspx");
             }
-                     conn.Close();
+                conn.Close();
         }
         catch 
         {
@@ -97,10 +99,10 @@ public partial class 教师登录 : System.Web.UI.Page
         //int n = Convert.ToInt32(cmd1.ExecuteScalar());
         if (n == 0)
         {
-            cmd1.CommandText = "if ((select count(教师用户名) from 教师用户) < 3 ) begin update 评委中 set 评价=评委评分.评价,参赛者编号=当前组号.目前组号 ,评分1= ( select 0.3*sum(评分)/COUNT(评分) from 评委评分 where 参赛者编号=目前组号) from 当前组号 , 评委评分; if((select count (评分) from 观众评分 ,当前组号 where 观众评分.参赛者编号=当前组号.目前组号)<3) update 观众中 set 参赛者编号=当前组号.目前组号 ,评分2= ( select 0.7*(sum(评分))/(COUNT(评分)) from 观众评分 where 参赛者编号=目前组号) from 当前组号 , 观众评分 ;else update 观众中 set 参赛者编号=当前组号.目前组号 ,评分2= ( select 0.7*(sum(评分)-max(评分)-min(评分))/(COUNT(评分)-2) from 观众评分 where 参赛者编号=目前组号) from 当前组号 , 观众评分 ;insert into 参赛者 (参赛者编号,最终得分,评价) select 当前组号.目前组号 , 观众中.评分2 + 评委中.评分1 ,评委中.评价 from 当前组号, 观众中,评委中 end else begin update 评委中 set 参赛者编号=当前组号.目前组号 ,评分1= ( select 0.3*(sum(评分)-max(评分)-min(评分))/(COUNT(评分)-2) from 评委评分 where 参赛者编号=目前组号) from 当前组号 , 评委评分; if((select count (评分) from 观众评分 ,当前组号 where 观众评分.参赛者编号=当前组号.目前组号)<3) update 观众中 set 参赛者编号=当前组号.目前组号 ,评分2= ( select 0.7*(sum(评分))/(COUNT(评分)) from 观众评分 where 参赛者编号=目前组号) from 当前组号 , 观众评分 ;else update 观众中 set 参赛者编号=当前组号.目前组号 ,评分2= ( select 0.7*(sum(评分)-max(评分)-min(评分))/(COUNT(评分)-2) from 观众评分 where 参赛者编号=目前组号) from 当前组号 , 观众评分 ;insert into 参赛者 (参赛者编号,最终得分,评价) select 目前组号 , 观众中.评分2 + 评委中.评分1 ,评委中.评价 from 当前组号, 观众中,评委中 end;";
+            cmd1.CommandText = "if ((select count(教师用户名) from 教师用户) < 3 ) begin update 评委中 set 评价=评委评分.评价,参赛者编号=当前组号.目前组号 ,评分1= ( select 0.6*sum(评分)/COUNT(评分) from 评委评分 where 参赛者编号=目前组号) from 当前组号 , 评委评分; if((select count (评分) from 观众评分 ,当前组号 where 观众评分.参赛者编号=当前组号.目前组号)<3) update 观众中 set 参赛者编号=当前组号.目前组号 ,评分2= ( select 0.4*(sum(评分))/(COUNT(评分)) from 观众评分 where 参赛者编号=目前组号) from 当前组号 , 观众评分 ;else update 观众中 set 参赛者编号=当前组号.目前组号 ,评分2= ( select 0.4*(sum(评分)-max(评分)-min(评分))/(COUNT(评分)-2) from 观众评分 where 参赛者编号=目前组号) from 当前组号 , 观众评分 ;insert into 参赛者 (参赛者编号,最终得分,评价) select 当前组号.目前组号 , 观众中.评分2 + 评委中.评分1 ,评委中.评价 from 当前组号, 观众中,评委中 end else begin update 评委中 set 参赛者编号=当前组号.目前组号 ,评分1= ( select 0.6*(sum(评分)-max(评分)-min(评分))/(COUNT(评分)-2) from 评委评分 where 参赛者编号=目前组号) from 当前组号 , 评委评分; if((select count (评分) from 观众评分 ,当前组号 where 观众评分.参赛者编号=当前组号.目前组号)<3) update 观众中 set 参赛者编号=当前组号.目前组号 ,评分2= ( select 0.4*(sum(评分))/(COUNT(评分)) from 观众评分 where 参赛者编号=目前组号) from 当前组号 , 观众评分 ;else update 观众中 set 参赛者编号=当前组号.目前组号 ,评分2= ( select 0.4*(sum(评分)-max(评分)-min(评分))/(COUNT(评分)-2) from 观众评分 where 参赛者编号=目前组号) from 当前组号 , 观众评分 ;insert into 参赛者 (参赛者编号,最终得分,评价) select 目前组号 , 观众中.评分2 + 评委中.评分1 ,评委中.评价 from 当前组号, 观众中,评委中 end;";
              cmd1.ExecuteNonQuery();
                 Label8.Text = "计算完成";
-            conn1.Close();
+                conn1.Close();
             
             
         }
@@ -111,5 +113,9 @@ public partial class 教师登录 : System.Web.UI.Page
         }
         
         
+    }
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("详细评分.aspx");
     }
 }

@@ -56,10 +56,10 @@
 <body>
     <div style="width:100%;margin:0px auto">
     <form id="form1" runat="server">
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="auto-style16" CellPadding="4"  ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="auto-style16" CellPadding="4"  ForeColor="#333333" GridLines="None" >
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="参赛者编号" HeaderText="参赛者编号" ReadOnly="True" SortExpression="参赛者编号" />
+                <asp:BoundField DataField="参赛者编号" HeaderText="参赛者编号" SortExpression="参赛者编号" />
                 <asp:BoundField DataField="最终得分" HeaderText="最终得分" SortExpression="最终得分" />
                 <asp:BoundField DataField="评价" HeaderText="评价" SortExpression="评价" />
             </Columns>
@@ -93,6 +93,8 @@
         <strong>
         <asp:Label ID="Label2" runat="server" CssClass="auto-style18" Text="评分规则"></asp:Label>
         </strong>
+        <div style="z-index: 1; left: 36px; top: 161px; position: absolute; height: 101px; width: 848px">
+        </div>
     <img src="image\tk.jpg" height="100%" width="100%"><asp:Button ID="Button1" runat="server" CssClass="auto-style15" OnClick="Button1_Click" Text="返回评分" />
     &nbsp;<strong><asp:Label ID="Label1" runat="server" CssClass="auto-style6" Text="排名情况"></asp:Label>
         </strong>

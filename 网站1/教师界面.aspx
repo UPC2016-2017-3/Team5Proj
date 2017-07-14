@@ -100,11 +100,11 @@
         }
         .auto-style11 {
             position: absolute;
-            top: 336px;
+            top: 337px;
             z-index: 1;
             height: 32px;
             width: 107px;
-            right: 533px;
+            right: 473px;
         }
         .auto-style12 {
             position: absolute;
@@ -112,7 +112,9 @@
             left: 629px;
             z-index: 1;
             height: 31px;
-            bottom: 220px;
+            bottom: 141px;
+            width: 92px;
+            right: 147px;
         }
         .auto-style13 {
             z-index: 1;
@@ -140,8 +142,9 @@
             left: 563px;
             z-index: 1;
             font-size: x-large;
-            width: 99px;
+            width: 147px;
             color: #FF0000;
+            text-align: center;
         }
         .auto-style17 {
             z-index: 1;
@@ -182,6 +185,7 @@
       
     
        <select id="Select1" name="D1" onchange="ok(this)" class="auto-style4">
+           <option>0组</option>
             <option>1组</option>
             <option>2组</option>
             <option>3组</option>
@@ -203,6 +207,8 @@
         <asp:Label ID="Label2" runat="server" Text="当前小组" CssClass="auto-style13"></asp:Label>
         <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style5"></asp:TextBox>
         
+        <asp:Button ID="Button6" runat="server" style="z-index: 1; left: 626px; top: 258px; position: absolute; height: 31px; width: 95px; right: 147px" Text="查看详细评分" onclick="Button6_Click"/>
+        
     <img src="image\tk.jpg" height="100%" width="100%">
         <strong><asp:Label ID="Label8" runat="server" CssClass="auto-style16" Text=" "></asp:Label>
         </strong>
@@ -216,7 +222,7 @@
     <script>
         function ok(ss){
             var elm = document.getElementById('TextBox3')
-            elm.value = ss.selectedIndex + 1
+            elm.value = ss.selectedIndex
         }
         </script>
     </form>

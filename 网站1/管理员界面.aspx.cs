@@ -294,7 +294,7 @@ else{
     }
     protected void Button8_Click(object sender, EventArgs e)
     {
-        string strcon = "Data Source=119.29.143.19;Initial Catalog=打分;User ID=sa;Password=sasa";
+        string strcon = "Data Source=119.29.143.19;Initial Catalog=打分;User ID=lpl;Password=123";
         SqlConnection conn1 = new SqlConnection(strcon);
         SqlCommand cmd1 = conn1.CreateCommand();
         cmd1.CommandText = "delete from 参赛者;delete from 观众评分;delete from 评委评分;delete from 用户名密码;delete from 主办方; delete from 教师用户";

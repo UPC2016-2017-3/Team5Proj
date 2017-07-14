@@ -38,8 +38,8 @@
         }
         .auto-style10 {
             position: absolute;
-            top: 201px;
-            left: 632px;
+            top: 200px;
+            left: 745px;
             z-index: 1;
             margin-top: 179px;
             height: 31px;
@@ -86,19 +86,32 @@
             font-size: x-large;
             color: #FF0000;
         }
+        #Button3 {
+            z-index: 1;
+            top: 378px;
+            position: absolute;
+            right: 206px;
+            height: 30px;
+        }
     </style>
+    <script >
+        function aaa() {
+            window.location.href = window.location.href;
+        }
+
+    </script>
 </head>
 <body >
     <div style="width:100%;margin:0px auto">
     <form id="form1" runat="server">
         <asp:Button ID="Button1" runat="server" CssClass="auto-style9" Text="评分" OnClick="Button1_Click" />
-        <asp:Button ID="Button2" runat="server" CssClass="auto-style10" OnClick="Button2_Click" Text="查看排名" />
-        <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style11" ReadOnly="True"></asp:TextBox>
+        <asp:Button ID="Button2" runat="server" CssClass="auto-style10" OnClick="Button2_Click" Text="查看排名" />  
+        &nbsp;<asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style11" ReadOnly="True"></asp:TextBox>
         <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style12" MaxLength="3" OnTextChanged="TextBox2_TextChanged" TextMode="Number"></asp:TextBox>
         <asp:Label ID="Label4" runat="server" CssClass="auto-style13" Text="欢迎登陆 第："></asp:Label>
         <asp:Label ID="Label5" runat="server" CssClass="auto-style14" Text="xxx"></asp:Label>
         <asp:Label ID="Label7" runat="server" CssClass="auto-style16" Text=" "></asp:Label>
-    <img src="image\tk.jpg" height="100%" width="100%"><asp:Label ID="Label6" runat="server" CssClass="auto-style15" Text="组"></asp:Label>
+        &nbsp;<input id="Button3" type="button" value="刷新" onclick="aaa()" style="width: 79px"/><img src="image\tk.jpg" height="100%" width="100%"><asp:Label ID="Label6" runat="server" CssClass="auto-style15" Text="组"></asp:Label>
         <p>
             <strong>
             <asp:Label ID="Label1" runat="server" CssClass="auto-style3" Text="当前小组"></asp:Label>
